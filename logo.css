@@ -1,0 +1,8 @@
+/*
+  Customize the logo in the homepage header
+*/
+#header-logo {
+  background-image: url(https://i.pinimg.com/originals/1f/1d/c2/1f1dc2abeae13dcb9078b020f8b9702b.png);
+  background-size: initial;
+  width: 194px;
+}
