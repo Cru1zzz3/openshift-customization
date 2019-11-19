@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 angular
   .module('openshiftMonitoringWidget', ['openshiftConsole'])
   .run([
@@ -24,8 +24,9 @@ angular
   ]);
 
 pluginLoader.addModule('openshiftMonitoringWidget');
+*/
 
-/*
+
 angular
   .module('openshiftOnlineExtensions', ['openshiftConsole'])
   .run([
@@ -92,4 +93,3 @@ angular
   ]);
 
 pluginLoader.addModule('openshiftOnlineExtensions');
-*/
