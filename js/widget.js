@@ -23,7 +23,7 @@ angular
     }
   ]);
 
-hawtioPluginLoader.addModule('openshiftMonitoringWidget');
+pluginLoader.addModule('openshiftMonitoringWidget');
 
 /*
 angular
