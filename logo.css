@@ -1,11 +1,7 @@
-/*
-  Customize the logo in the homepage header
-*/
 #header-logo {
-  background-image: url("https://cru1zzz3.github.io/openshift-customization/garfield.png");
+  background-image: url("https://cru1zzz3.github.io/openshift-customization/garfield-small.png");
   background-position: left center;
   background-repeat: no-repeat;
   height: 40px;
   width: 34px;
 }
-
