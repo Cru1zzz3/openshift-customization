@@ -1,15 +1,7 @@
 #header-logo {
-  background-image: url("https://cru1zzz3.github.io/openshift-customization/garfield-small.png");
+  background-image: url("https://cru1zzz3.github.io/openshift-customization/img/garfield-small.png");
   background-position: left center;
   background-repeat: no-repeat;
-  height: 40px;
-  width: 34px;
-}
-
-.services-view .services-item .services-item-icon {
-  background-image: url("https://cru1zzz3.github.io/openshift-customization/garfield-small.png");
-  background-position: left center;
-  background-repeat: no-repeat;
-  height: 40px;
-  width: 34px;
+  height: 50px;
+  width: 50px;
 }

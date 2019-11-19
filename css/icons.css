@@ -1,1 +1,7 @@
-.services-view .services-item .services-item-icon img[src$="https://cru1zzz3.github.io/openshift-customization/garfield-small.png"]{width:50px}
+.services-view .services-item .services-item-icon {
+    background-image: url("https://cru1zzz3.github.io/openshift-customization/img/garfield-small.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+  }
