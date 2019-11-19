@@ -6,7 +6,7 @@ angular
     'extensionRegistry',
     function(extensionRegistry) {
       extensionRegistry
-        .add('nav-user-dropdown', function() {
+        .add('nav-help-dropdown', function() {
           return [
             {
               type: 'dom',
