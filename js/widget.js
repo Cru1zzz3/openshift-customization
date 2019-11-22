@@ -37,14 +37,14 @@ angular
       var system_status_elem_mobile = $('<div row flex class="navbar-flex-btn system-status-mobile">');
 
       $.getJSON("https://cru1zzz3.github.io/openshift-customization/json/data.json", function (data) {
+        var featureCount = Object.keys(data).length;
         var items = [];
-        var len = items.keys(obj).length;
         $.each(data, function (key, val) {
           items.push("<li id='" + key + "'>" + val + "</li>");
         });
 
-        var featureStr = len + ' feature';
-        if (len !== 1) {
+        var featureStr = featureCount + ' feature';
+        if (featureCount !== 1) {
           featureStr += "s";
         }
         $('<span title="System Status" class="fa status-icon pficon-warning-triangle-o"></span>').appendTo(system_status_elem);
