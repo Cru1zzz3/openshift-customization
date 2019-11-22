@@ -5,16 +5,17 @@ angular
   .run([
     'extensionRegistry',
     function (extensionRegistry) {
-
-
-
-
       $.getJSON("https://cru1zzz3.github.io/openshift-customization/json/data.json", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
                 
-        var feature_status = $.each(data, function (key, val) {
-          '<li class="ng-scope">' + key + ':' + val + '</li>';
-        });
+
+        function feature_status(features) {
+          var feature = '';
+          $.each(data, function (key, val) {
+            feature.concat('<li class="ng-scope">' + key + ':' + val + '</li>');
+          });
+          return features;   // The function returns the product of p1 and p2
+        }
 
         var featureStr = featureCount + ' feature';
         if (featureCount !== 1) {
@@ -25,7 +26,7 @@ angular
           .add('nav-widget-dropdown', function () {
             return [{
               type: 'dom',
-              node: '<li class="ng-scope">' + feature_status + '</li>'
+              node: feature_status
             }];
           });
 
