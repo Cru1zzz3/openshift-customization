@@ -95,14 +95,14 @@ angular
 pluginLoader.addModule('openshiftOnlineExtensions');
 
 angular
-  .module('mysystemstatusbadgeextension', ['openshiftConsole'])
+  .module('openshiftWidget', ['openshiftConsole'])
   .run([
     'extensionRegistry',
     function(extensionRegistry) {
       // Replace http://status.example.com/ with your domain
-      var system_status_elem = $('<a href="http://status.example.com/"' +
+      var widget_status_elem = $('<a href="http://status.example.com/"' +
       'target="_blank" class="nav-item-iconic system-status"><span title="' +
-      'System Status" class="fa status-icon pficon-warning-triangle-o">' +
+      'System Status" class="fa status-icon fa-bell-o">' +
       '</span></a>');
 
       // Add the extension point to the registry so the badge appears
@@ -111,7 +111,7 @@ angular
         .add('nav-system-status', function() {
           return [{
             type: 'dom',
-            node: system_status_elem
+            node: widget_status_elem
           }];
         });
     }
