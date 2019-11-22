@@ -23,7 +23,7 @@ angular
           featureStr += "s";
         }
 
-        var system_status_elem = $('<li class="dropdown" uib-dropdown="" style="">' +
+        var system_status_elem = $('<li class="dropdown" uib-dropdown="" style="padding-top: 30px">' +
           '<a uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle" id="widget-dropdown" href="" aria-haspopup="true" aria-expanded="false">' +
             '<span title="System Status" class="fa object fa-tachometer"></span>' + // dashboard icon
             '<span class="sr-only">Status dashboard</span>' + // hover comment
