@@ -38,14 +38,13 @@ angular
 
       $.getJSON("https://cru1zzz3.github.io/openshift-customization/json/data.json", function (data) {
         var items = [];
-        var n = 0;
+        var len = items.keys(obj).length;
         $.each(data, function (key, val) {
           items.push("<li id='" + key + "'>" + val + "</li>");
-          n = key;
         });
 
-        var featureStr = n + ' feature';
-        if (n !== 1) {
+        var featureStr = len + ' feature';
+        if (len !== 1) {
           featureStr += "s";
         }
         $('<span title="System Status" class="fa status-icon pficon-warning-triangle-o"></span>').appendTo(system_status_elem);
