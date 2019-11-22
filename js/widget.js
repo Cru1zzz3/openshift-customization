@@ -31,47 +31,49 @@ angular
   .module('openshiftOnlineExtensions', ['openshiftConsole'])
   .run([
     'extensionRegistry',
-    function(extensionRegistry) {
+    function (extensionRegistry) {
 
       var system_status_elem = $('<a href="http://status.openshift.com/" target="_blank" class="nav-item-iconic system-status project-action-btn">');
       var system_status_elem_mobile = $('<div row flex class="navbar-flex-btn system-status-mobile">');
 
+      $.getJSON("https://cru1zzz3.github.io/openshift-customization/json/data.json", function (data) {
+        var items = [];
+        var n = 0;
+        $.each(data, function (key, val) {
+          items.push("<li id='" + key + "'>" + val + "</li>");
+          n = key;
+        });
 
-      $.getJSON("https://m0sg3q4t415n.statuspage.io/api/v2/summary.json", function (data) {
-        var n = (data.incidents || [ ]).length;
-        if (n > 0) {
-          var issueStr = n + ' open issue';
-          if (n !== 1) {
-            issueStr += "s";
-          }
-          $('<span title="System Status" class="fa status-icon pficon-warning-triangle-o"></span>').appendTo(system_status_elem);
-          $('<span class="status-issue">' + issueStr + '</span>').appendTo(system_status_elem);
-
-          system_status_elem_mobile.append(system_status_elem.clone());
-
-          // only add the extension if there is something to show so we
-          // do not generate empty nodes if no issues
-          extensionRegistry
-            .add('nav-system-status', function() {
-              return [{
-                type: 'dom',
-                node: system_status_elem
-              }];
-            });
-
-          extensionRegistry
-            .add('nav-system-status-mobile', function() {
-              return [{
-                type: 'dom',
-                node: system_status_elem_mobile
-              }];
-            });
-
+        var featureStr = n + ' feature';
+        if (n !== 1) {
+          featureStr += "s";
         }
+        $('<span title="System Status" class="fa status-icon pficon-warning-triangle-o"></span>').appendTo(system_status_elem);
+        $('<span class="status-issue">' + featureStr + '</span>').appendTo(system_status_elem);
+
+        system_status_elem_mobile.append(system_status_elem.clone());
+
+        // only add the extension if there is something to show so we
+        // do not generate empty nodes if no issues
+        extensionRegistry
+          .add('nav-system-status', function () {
+            return [{
+              type: 'dom',
+              node: system_status_elem
+            }];
+          });
+
+        extensionRegistry
+          .add('nav-system-status-mobile', function () {
+            return [{
+              type: 'dom',
+              node: system_status_elem_mobile
+            }];
+          });
       });
 
       extensionRegistry
-        .add('nav-help-dropdown', function() {
+        .add('nav-help-dropdown', function () {
           return [
             {
               type: 'dom',
@@ -98,17 +100,17 @@ angular
   .module('mysystemstatusbadgeextension', ['openshiftConsole'])
   .run([
     'extensionRegistry',
-    function(extensionRegistry) {
+    function (extensionRegistry) {
       // Replace http://status.example.com/ with your domain
       var system_status_elem = $('<a href="http://status.example.com/"' +
-      'target="_blank" class="nav-item-iconic system-status"><span title="' +
-      'System Status" class="fa status-icon pficon-warning-triangle-o">' +
-      '</span></a>');
+        'target="_blank" class="nav-item-iconic system-status"><span title="' +
+        'System Status" class="fa status-icon pficon-warning-triangle-o">' +
+        '</span></a>');
 
       // Add the extension point to the registry so the badge appears
       // To disable the badge, comment this block out
       extensionRegistry
-        .add('nav-system-status', function() {
+        .add('nav-system-status', function () {
           return [{
             type: 'dom',
             node: system_status_elem
