@@ -1,30 +1,5 @@
 'use strict';
-/*
-angular
-  .module('openshiftMonitoringWidget', ['openshiftConsole'])
-  .run([
-    'extensionRegistry',
-    function(extensionRegistry) {
-      extensionRegistry
-        .add('nav-help-dropdown', function() {
-          return [
-            {
-              type: 'dom',
-              node: '<li><a href="http://www.example.com/report" target="_blank">Report a Bug</a></li>'
-            }, {
-              type: 'dom',
-              node: '<li class="divider"></li>'  // If you want a horizontal divider to appear in the menu
-            }, {
-              type: 'dom',
-              node: '<li><a href="http://www.example.com/status" target="_blank">System Status</a></li>'
-            }
-          ];
-        });
-    }
-  ]);
 
-pluginLoader.addModule('openshiftMonitoringWidget');
-*/
 
 
 angular
@@ -59,6 +34,12 @@ angular
             return [{
               type: 'dom',
               node: system_status_elem
+            }, {
+              type: 'dom',
+              node: '<li class="divider"></li>'
+            }, {
+              type: 'dom',
+              node: feature_status
             }];
           });
 
@@ -69,11 +50,12 @@ angular
               node: system_status_elem_mobile
             }];
           });
-        
-        var feature_status = $('<span class="feature-status">' + Object.keys(data) + ' : ' + Object.values(data) +'</span>');
 
+        var feature_status = $('<span class="feature-status">' + Object.items(data) + '</span>');
+
+        /*
         extensionRegistry
-          .add('nav-help-dropdown', function () {
+          .add('nav-user-dropdown', function () {
             return [
               {
                 type: 'dom',
@@ -90,6 +72,7 @@ angular
               }
             ];
           });
+          */
       });
     }
   ]);
@@ -121,4 +104,31 @@ angular
   ]);
 
 hawtioPluginLoader.addModule('mysystemstatusbadgeextension');
+*/
+
+/*
+angular
+  .module('openshiftMonitoringWidget', ['openshiftConsole'])
+  .run([
+    'extensionRegistry',
+    function(extensionRegistry) {
+      extensionRegistry
+        .add('nav-help-dropdown', function() {
+          return [
+            {
+              type: 'dom',
+              node: '<li><a href="http://www.example.com/report" target="_blank">Report a Bug</a></li>'
+            }, {
+              type: 'dom',
+              node: '<li class="divider"></li>'  // If you want a horizontal divider to appear in the menu
+            }, {
+              type: 'dom',
+              node: '<li><a href="http://www.example.com/status" target="_blank">System Status</a></li>'
+            }
+          ];
+        });
+    }
+  ]);
+
+pluginLoader.addModule('openshiftMonitoringWidget');
 */
