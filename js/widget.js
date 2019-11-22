@@ -24,7 +24,7 @@ angular
         }
 
         var system_status_elem = $('<li class="dropdown" uib-dropdown="" style="">' +
-          '<a uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle" id="help-dropdown" href="" aria-haspopup="true" aria-expanded="false">' +
+          '<a uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle" id="widget-dropdown" href="" aria-haspopup="true" aria-expanded="false">' +
             '<span title="System Status" class="fa object fa-tachometer"></span>' + // dashboard icon
             '<span class="sr-only">Status dashboard</span>' + // hover comment
             '<span class="caret" aria-hidden="true"></span>' +
