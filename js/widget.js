@@ -69,33 +69,34 @@ angular
               node: system_status_elem_mobile
             }];
           });
-      });
+        
+        var feature_status = $('<span class="feature-status">' + Object.keys(data) + ' : ' + Object.values(data) +'</span>');
 
-      /*
-      extensionRegistry
-        .add('nav-help-dropdown', function () {
-          return [
-            {
-              type: 'dom',
-              node: '<li><a href="https://bugzilla.redhat.com/enter_bug.cgi?product=OpenShift%20Online" target="_blank">Report a Bug</a></li>'
-            }, {
-              type: 'dom',
-              node: '<li><a href="https://stackoverflow.com/tags/openshift" target="_blank">Stack Overflow</a></li>'
-            }, {
-              type: 'dom',
-              node: '<li class="divider"></li>'
-            }, {
-              type: 'dom',
-              node: '<li><a href="http://status.openshift.com/" target="_blank">System Status</a></li>'
-            }
-          ];
-        });
-      */
+        extensionRegistry
+          .add('nav-help-dropdown', function () {
+            return [
+              {
+                type: 'dom',
+                node: feature_status
+              }, {
+                type: 'dom',
+                node: '<li><a href="https://stackoverflow.com/tags/openshift" target="_blank">Stack Overflow</a></li>'
+              }, {
+                type: 'dom',
+                node: '<li class="divider"></li>'
+              }, {
+                type: 'dom',
+                node: '<li><a href="http://status.openshift.com/" target="_blank">System Status</a></li>'
+              }
+            ];
+          });
+      });
     }
   ]);
 
 pluginLoader.addModule('openshiftOnlineExtensions');
 
+/*
 angular
   .module('mysystemstatusbadgeextension', ['openshiftConsole'])
   .run([
@@ -120,3 +121,4 @@ angular
   ]);
 
 hawtioPluginLoader.addModule('mysystemstatusbadgeextension');
+*/
