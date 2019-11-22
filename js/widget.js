@@ -26,7 +26,7 @@ angular
           .add('nav-widget-dropdown', function () {
             return [{
               type: 'dom',
-              node: feature_status(features)
+              node: feature_status()
             }];
           });
 
