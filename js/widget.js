@@ -37,7 +37,7 @@ angular
               node: system_status_elem
             }, {
               type: 'dom',
-              node: '<li class="dropdown" uib-dropdown=""></li>'
+              node: '<a id="widget-dropdown" class="nav-item-iconic dropdown-toggle" uib-dropdown-toggle=""><span class="sr-only">Help</span></a>'
             }, {
               type: 'dom',
               node: feature_status
