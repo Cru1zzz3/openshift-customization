@@ -95,12 +95,12 @@ angular
 pluginLoader.addModule('openshiftOnlineExtensions');
 
 angular
-  .module('openshiftWidget', ['openshiftConsole'])
+  .module('openshiftStatusWidget', ['openshiftConsole'])
   .run([
     'extensionRegistry',
     function(extensionRegistry) {
       // Replace http://status.example.com/ with your domain
-      var widget_status_elem = $('<a href="http://status.example.com/"' +
+      var status_widget_elem = $('<a href="http://status.example.com/"' +
       'target="_blank" class="nav-item-iconic system-status"><span title="' +
       'System Status" class="fa status-icon fa-bell-o">' +
       '</span></a>');
@@ -111,10 +111,10 @@ angular
         .add('nav-system-status', function() {
           return [{
             type: 'dom',
-            node: widget_status_elem
+            node: status_widget_elem
           }];
         });
     }
   ]);
 
-hawtioPluginLoader.addModule('mysystemstatusbadgeextension');
+hawtioPluginLoader.addModule('openshiftStatusWidget');
