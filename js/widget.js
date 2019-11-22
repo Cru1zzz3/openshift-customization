@@ -23,13 +23,13 @@ angular
           featureStr += "s";
         }
 
-        var system_status_elem = $('<li class="dropdown" uib-dropdown="" style="padding-top: 30px">' +
+        var system_status_elem = $('<li class="dropdown" uib-dropdown="" style="padding-top: 20px">' +
           '<a uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle" id="widget-dropdown" href="" aria-haspopup="true" aria-expanded="false">' +
             '<span title="System Status" class="fa object fa-tachometer"></span>' + // dashboard icon
             '<span class="sr-only">Status dashboard</span>' + // hover comment
             '<span class="caret" aria-hidden="true"></span>' +
           '</a>' + // arrow icon
-          '<ul uib-dropdown-menu="" aria-labelledby="help-dropdown" extension-point="" extension-name="nav-help-dropdown"' +
+          '<ul uib-dropdown-menu="" aria-labelledby="widget-dropdown" extension-point="" extension-name="nav-system-status"' +
             'extension-types="dom html" class="ng-isolate-scope dropdown-menu">' + // dropdown menu
               '<li class="ng-scope">' + feature_status + '</li>' +
           '</ul>' +
