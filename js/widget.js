@@ -51,7 +51,7 @@ angular
             }];
           });
 
-        var feature_status = $('<span class="feature-status">' + Object.items(data) + '</span>');
+        var feature_status = $('<span class="feature-status">' + Object.keys(data) + ':' + Object.values(data) + '</span>');
 
         /*
         extensionRegistry
