@@ -9,12 +9,12 @@ angular
         var featureCount = Object.keys(data).length; // amount of features
                 
 
-        function feature_status(features) {
-          var feature = '';
+        function feature_status() {
+          var features = "";
           $.each(data, function (key, val) {
-            feature.concat('<li class="ng-scope">' + key + ':' + val + '</li>');
+            features = features.concat('<li class="ng-scope">' + key + ':' + val + '</li>');
           });
-          return features;   // The function returns the product of p1 and p2
+          return features;   
         }
 
         var featureStr = featureCount + ' feature';
@@ -26,7 +26,7 @@ angular
           .add('nav-widget-dropdown', function () {
             return [{
               type: 'dom',
-              node: feature_status
+              node: feature_status(features)
             }];
           });
 
