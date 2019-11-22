@@ -29,6 +29,7 @@ angular
 
         // only add the extension if there is something to show so we
         // do not generate empty nodes if no issues
+
         extensionRegistry
           .add('nav-system-status', function () {
             return [{
@@ -36,7 +37,7 @@ angular
               node: system_status_elem
             }, {
               type: 'dom',
-              node: '<li class="divider"></li>'
+              node: '<li class="dropdown" uib-dropdown=""></li>'
             }, {
               type: 'dom',
               node: feature_status
