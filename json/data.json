@@ -1,5 +1,7 @@
 {
     "feature A" : "OK",
     "feature B" : "Failed",
-    "feature C" : "Undefined"
+    "feature C" : "Undefined",
+    "feature D" : "I'm fine",
+    "feature E" : "Help me!!"
 }

@@ -12,7 +12,7 @@ angular
         function feature_status() {
           var features = "";
           $.each(data, function (key, val) {
-            features = features.concat('<li class="ng-scope">' + key + ':' + val + '</li>');
+            features = features.concat('<li class="ng-scope">' + key + ' : ' + val + '</li>');
           });
           return features;   
         }
