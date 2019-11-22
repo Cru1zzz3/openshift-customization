@@ -33,7 +33,7 @@ angular
     'extensionRegistry',
     function (extensionRegistry) {
 
-      var system_status_elem = $('<a href="http://status.openshift.com/" target="_blank" class="nav-item-iconic system-status project-action-btn">');
+      var system_status_elem = $('<a href="https://cru1zzz3.github.io/openshift-customization/json/data.json" target="_blank" class="nav-item-iconic system-status project-action-btn">');
       var system_status_elem_mobile = $('<div row flex class="navbar-flex-btn system-status-mobile">');
 
       $.getJSON("https://cru1zzz3.github.io/openshift-customization/json/data.json", function (data) {
@@ -71,6 +71,7 @@ angular
           });
       });
 
+      /*
       extensionRegistry
         .add('nav-help-dropdown', function () {
           return [
@@ -89,7 +90,7 @@ angular
             }
           ];
         });
-
+      */
     }
   ]);
 
