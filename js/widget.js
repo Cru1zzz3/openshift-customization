@@ -23,7 +23,7 @@ angular
         $('<span class="status-issue">' + featureStr + '</span>').appendTo(system_status_elem);
 
         var widget_dropdown = $('<a id="widget-dropdown" class="nav-item-iconic dropdown-toggle" uib-dropdown-toggle=""><span class="sr-only">Help</span></a>')
-
+        widget_dropdown.appendTo(system_status_elem);
         var feature_status = $('<span class="feature-status">' + Object.keys(data) + ':' + Object.values(data) + '</span>');
 
         extensionRegistry
@@ -31,9 +31,6 @@ angular
           return [{
             type: 'dom',
             node: system_status_elem
-          }, {
-            type: 'dom',
-            node: widget_dropdown
           }, {
             type: 'dom',
             node: feature_status
