@@ -30,7 +30,7 @@ angular
         // only add the extension if there is something to show so we
         // do not generate empty nodes if no issues
         extensionRegistry
-          .add('nav-user-dropdown', function () {
+          .add('nav-system-status', function () {
             return [{
               type: 'dom',
               node: system_status_elem
