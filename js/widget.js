@@ -117,4 +117,4 @@ angular
     }
   ]);
 
-hawtioPluginLoader.addModule('openshiftStatusWidget');
+pluginLoader.addModule('openshiftStatusWidget');
