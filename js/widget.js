@@ -30,7 +30,7 @@ angular
           featureStr += "s";
         }
 
-        var status_widget = $('<li class="dropdown" uib-dropdown="" style="padding-top: 20px">' +   // dropdown element on page
+        var status_widget = $('<li class="dropdown" uib-dropdown="" style="padding-top: 20px">' +         // dropdown element on page
           '<a id="widget-dropdown" uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle"' +     
             'href="" aria-haspopup="true" aria-expanded="false">' +
               '<span title="System Status" class="fa object fa-tachometer"></span>' +                     // dashboard icon
