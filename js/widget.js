@@ -50,7 +50,7 @@ angular
           .add('nav-system-status', function () {
             return [{
               type: 'dom',
-              node: status_widget
+              node: status_widget // maybe change to monitoring widget
             }];
           });
       });
