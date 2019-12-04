@@ -5,7 +5,7 @@ angular
   .run([
     'extensionRegistry',
     function (extensionRegistry) {
-      $.getJSON("https://cru1zzz3.github.io/openshift-customization/json/data.json", function (data) {
+      $.getJSON("http://132.145.140.35:8080/metrics", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
                 
         // print all features from JSON file
