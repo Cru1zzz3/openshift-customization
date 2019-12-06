@@ -6,7 +6,7 @@ angular
     'extensionRegistry',
     function (extensionRegistry) {
       
-      $.getJSON("http://132.145.140.35:8080/metrics/callback=?", function (data) {
+      $.getJSON("http://localhost:9101/metrics", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
                 
         // print all features from JSON file
