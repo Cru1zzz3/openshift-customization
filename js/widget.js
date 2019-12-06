@@ -6,18 +6,22 @@ angular
     'extensionRegistry',
     function (extensionRegistry) {
       
-      var invocation = new XMLHttpRequest();
-      var url = 'http://localhost:9101/metrics';
-        
-      function callOtherDomain() {
-        if(invocation) {    
-          invocation.open('GET', url, true);
-          invocation.onreadystatechange = handler;
-          invocation.send(); 
-        }
+      var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+
+      var xhr = new XHR();
+
+      // (2) запрос на другой домен :)
+      xhr.open('GET', 'http://localhost:9101/metrics?callback', true);
+
+      xhr.onload = function() {
+        alert( this.responseText );
       }
 
-      console.log(callOtherDomain());
+      xhr.onerror = function() {
+        alert( 'Ошибка ' + this.status );
+      }
+
+      xhr.send();
 
       $.getJSON("http://localhost:9101/metrics?callback?", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
