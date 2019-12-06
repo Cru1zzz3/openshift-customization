@@ -11,7 +11,7 @@ angular
       var xhr = new XHR();
 
       // (2) запрос на другой домен :)
-      xhr.open('GET', 'http://132.145.140.35:8080/metrics?callback?', true);
+      xhr.open('GET', 'http://132.145.140.35:8080/metrics', true);
 
       xhr.onload = function() {
         alert( this.responseText );
