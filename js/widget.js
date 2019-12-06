@@ -11,7 +11,7 @@ angular
       var xhr = new XHR();
 
       // (2) запрос на другой домен :)
-      xhr.open('GET', 'http://132.145.140.35:8080/metrics', true);
+      xhr.open('GET', 'http://localhost:9101/metrics?callback', true);
 
       xhr.onload = function() {
         alert( this.responseText );
@@ -22,6 +22,7 @@ angular
       }
 
       xhr.send();
+
 
       $.getJSON("http://localhost:9101/metrics?callback?", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
