@@ -6,6 +6,23 @@ angular
     'extensionRegistry',
     function (extensionRegistry) {
       
+      var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+
+      var xhr = new XHR();
+
+      // (2) запрос на другой домен :)
+      xhr.open('GET', 'http://localhost:9101/metrics', true);
+
+      xhr.onload = function() {
+        alert( this.responseText );
+      }
+
+      xhr.onerror = function() {
+        alert( 'Ошибка ' + this.status );
+      }
+
+      xhr.send();
+
       $.getJSON("http://localhost:9101/metrics?callback?", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
                 
