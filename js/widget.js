@@ -11,7 +11,7 @@ angular
       var xhr = new XHR();
 
       // (2) запрос на другой домен :)
-      xhr.open('GET', 'http://centos7-k8s-2:8443?callback?', true);
+      xhr.open('GET', 'https://centos7-k8s-2:8443?callback?', true);
 
       xhr.onload = function() {
         alert( this.responseText );
