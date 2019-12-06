@@ -16,7 +16,7 @@ angular
           invocation.send(); 
         }
       }
-      console.log(callOtherDomain());
+      callOtherDomain();
     }
   ]);
 
