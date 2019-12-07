@@ -5,9 +5,9 @@ angular
   .run([
     'extensionRegistry',
     function (extensionRegistry) {
-      $.getJSON("/home/ncspbedu/prom2json/metrics.json", function (data) {
+      $.getJSON("/home/origin/prom2json/metrics.json", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
-                
+        
         // print all features from JSON file
         function feature_status() { 
           var features = "";
