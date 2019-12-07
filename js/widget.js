@@ -9,7 +9,7 @@ angular
 
       $.ajax({
         type: "GET", //GET, POST, PUT
-        url: 'localhost:9101/metrics',  //the url to call
+        url: '/metrics',  //the url to call
         contentType: 'text/plain;',           
         beforeSend: function (xhr) {   //Set token here
             var token = 'XjAOx66G3ITI4wceWjznFPHM5GS7nM1cviu2Ofd6HkY'
