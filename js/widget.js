@@ -67,7 +67,7 @@ angular
           }
         }).done(function (response) {
           console.log("Authorization ok");
-          plainelement = document.getElementById("remote");
+          plainelement = document.getElementById("plain");
           plainelement.append(response)
 
         }).fail(function (err) {
