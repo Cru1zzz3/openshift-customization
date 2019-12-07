@@ -17,6 +17,7 @@ angular
         }
           }).done(function (response) {
             console.log("Authorization ok");
+            console.log(response)
         }).fail(function (err)  {
             console.log("Error during request");
         });
