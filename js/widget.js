@@ -5,9 +5,25 @@ angular
   .run([
     'extensionRegistry',
     function (extensionRegistry) {
+
+      $.ajax({
+        url: 'http://localhost:9101/metrics',
+        type: 'GET',
+        contentType: 'application/json',
+        headers: {
+           'Authorization': 'Bearer <token>'
+        },
+        success: function (result) {
+            console.log("successfull get metrics")
+        },
+        error: function (error) {
+     
+        }
+     });
+
       $.getJSON("/home/origin/prom2json/metrics.json", function (data) {
         var featureCount = Object.keys(data).length; // amount of features
-        
+
         // print all features from JSON file
         function feature_status() { 
           var features = "";
