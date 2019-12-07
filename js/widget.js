@@ -11,7 +11,7 @@ angular
         type: 'GET',
         contentType: 'application/json',
         headers: {
-           'Authorization': 'Bearer <token>'
+           'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtbW9uaXRvcmluZyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJtZXRyaWNzLXRva2VuLXRram16Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6Im1ldHJpY3MiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIyMGQyZjgwMi0xOTBlLTExZWEtOTNmOC0wMjAwMTcwMGJkYjEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6b3BlbnNoaWZ0LW1vbml0b3Jpbmc6bWV0cmljcyJ9.j5BkaeqbcM1IR-Be6gyBUxGU0blAI3BTmcx-Y6pmcKmGdHEzkYgszCepFTMmMZXFjvypmIAeUeT6L_f4FlGQOmu7DSW3O0fQOcjRyOdTo17JzNBeQX8T8AwjeOpNodpdDN1zVr9uFcF_srxmbIwithznNy8TAj38_DSgLK9NB8RPyFeVQbApzmwVnPFx1T9ghkdXLLjOd9VbRJ7WPU_PiGlcVw4rvuaW0Q3OoMqU3JZczHu5wC70vsnDgz9_FTKN2JsQmxOY7nCJy_aznBEGQXrNQVjz8oZMuEJ_gNbbgxk4g5f5xfAMveRmhJnnHSWhS_w1OAjSg7JKmStMy5VRKg'
         },
         success: function (result) {
             console.log("successfull get metrics")
