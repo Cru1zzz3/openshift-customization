@@ -17,7 +17,7 @@ angular
             console.log("successfull get metrics")
         },
         error: function (error) {
-     
+          console.log("can't get metrics")
         }
      });
 
