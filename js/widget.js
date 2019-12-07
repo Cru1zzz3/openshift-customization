@@ -10,7 +10,7 @@ angular
       $.ajax({
         type: "GET", //GET, POST, PUT
         url: '/metrics',  //the url to call
-        contentType: 'text/plain;',           
+        contentType: 'application/json',           
         beforeSend: function (xhr) {   //Set token here
             var token = 'XjAOx66G3ITI4wceWjznFPHM5GS7nM1cviu2Ofd6HkY'
             xhr.setRequestHeader("Authorization", 'Bearer '+ token);
