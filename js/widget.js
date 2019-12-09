@@ -12,7 +12,7 @@ angular
         // print all features from JSON file
         function feature_status() {
           var features = "";
-          features = features.concat('<p id="plain">should be response from ajax</p>')
+          features = features.concat('<p id="plain" style="overflow:auto"></p>') // there should be response from /metrics
           $.each(data, function (key, val) {
             features = features.concat('<li class="ng-scope">' + key + ' : ' + val + '</li>');
           });
