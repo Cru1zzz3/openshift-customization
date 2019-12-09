@@ -12,7 +12,7 @@ angular
         // print all features from JSON file
         function feature_status() {
           var features = "";
-          features = features.concat('<p id="plain" style="overflow:auto"></p>') // there should be response from /metrics
+          features = features.concat('<div id="plain" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;"></div>') // there should be response from /metrics
           $.each(data, function (key, val) {
             features = features.concat('<li class="ng-scope">' + key + ' : ' + val + '</li>');
           });
@@ -39,6 +39,7 @@ angular
           var xhr = new XMLHttpRequest();
           xhr.open('GET', '/metrics')
           xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtbW9uaXRvcmluZyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJjbHVzdGVyLW1vbml0b3Jpbmctb3BlcmF0b3ItdG9rZW4taDhod2IiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiY2x1c3Rlci1tb25pdG9yaW5nLW9wZXJhdG9yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMjJhMGQyZTAtMTljNy0xMWVhLTkyYzEtMDIwMDE3MDBiZGIxIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW5zaGlmdC1tb25pdG9yaW5nOmNsdXN0ZXItbW9uaXRvcmluZy1vcGVyYXRvciJ9.WaOw4RShMJDlcDV7NUJCcp2Ba7Lvm7CKxywGijR2pZqcyI70NUeLE9Vx3pqUznPbL1biGRPdRllfEStVQq9QywCg16zi2Q9Ka0zIyg4vlt9seWuwctPEEdQitXqPnrlwuyzqcNO0tnS2AFjoeSxhOIlocLcfW-WvBARyEYr7kjKnH4mwvBCK3bklIh5hsub6LLVLqBSqx72q4fjsHQz7fBrlcRFj_qTSrIDoSBfYDkSGHojCQ48DbWHzm0KmaGspEFnT06QNogm1FwKRq08dZ0oaDf1WFIVZ_LTqYarSyDTU3aQ6TW_VNd8nEOLXmq3PQ8p1U5lEAhYPq7qvvt0tCg')
+          xhr.setRequestHeader('Content-Type', 'text/plain; version=0.0.4; charset=utf-8');
           xhr.responseType = 'text';
           xhr.send();
           xhr.onreadystatechange = function () {
@@ -46,7 +47,7 @@ angular
               console.log("Authorization ok");
               var plainElement = document.getElementById("plain");
               plainElement.append(xhr.responseText)
-              alert(xhr.responseText)
+              console.log(xhr.responseText)
             }
             else
               console.error("Error in getting metrics. Reason" + response.responseType + response.responseText);
