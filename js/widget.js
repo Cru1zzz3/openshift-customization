@@ -12,7 +12,7 @@ angular
         // print all features from JSON file
         function feature_status() {
           var features = "";
-          features = features.concat('<div id="plain" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;"></div>') // there should be response from /metrics
+          features = features.concat('<div id="metricsViewer" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;"></div>') // there should be response from /metrics
           $.each(data, function (key, val) {
             features = features.concat('<li class="ng-scope">' + key + ' : ' + val + '</li>');
           });
@@ -45,8 +45,8 @@ angular
           xhr.onreadystatechange = function () {
             if (xhr.status == 200) {
               console.log("Authorization ok");
-              var plainElement = document.getElementById("plain");
-              plainElement.append(xhr.responseText)
+              var metricsViewerElement = document.getElementById("metricsViewer");
+              metricsViewerElement.append(xhr.responseText)
               console.log(xhr.responseText)
             }
             else
