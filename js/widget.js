@@ -75,13 +75,19 @@ angular
           '</li>'
         );
 
-        // extension add widget to
         extensionRegistry
           .add('nav-system-status', function () {
             return [{
               type: 'dom',
               node: refresh_button // add refresh button 
-            },{
+            }];
+          });
+
+
+        // extension add widget to
+        extensionRegistry
+          .add('nav-system-status', function () {
+            return [{
               type: 'dom',
               node: status_widget // maybe change to monitoring widget
             }];
