@@ -76,7 +76,7 @@ angular
         );
 
         extensionRegistry
-          .add('nav-system-status', function () {
+          .add('nav-refresh-metrics', function () {
             return [{
               type: 'dom',
               node: refresh_button // add refresh button 
