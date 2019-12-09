@@ -41,8 +41,8 @@ angular
           xhr.onreadystatechange = function () {
             if (xhr.status == 200) {
               console.log("Authorization ok");
-              plainelement = document.getElementById("plain");
-              plainelement.append(xhr.responseText)
+              var plainElement = document.getElementById("plain");
+              plainElement.append(xhr.responseText)
               alert(xhr.responseText)
             }
             else
