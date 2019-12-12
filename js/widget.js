@@ -38,7 +38,7 @@ angular
           xhr.setRequestHeader('Content-Type', 'text/plain; version=0.0.4; charset=utf-8');
           xhr.responseType = 'text';
           xhr.send();
-          xhr.onreadystatechange = function () {
+          xhr.onload = function () {
             if (xhr.status == 200) {
               console.log("Authorization ok");
               var metricsViewerElement = document.getElementById("metricsViewer");
@@ -87,7 +87,7 @@ angular
         );
 
         function reloadMetrics(){
-          $('#metricsViewer').ready(function(){
+          $('#metricsViewer').onreadystatechange(function(){
             setInterval(getMetics,5000);
           });
         }
