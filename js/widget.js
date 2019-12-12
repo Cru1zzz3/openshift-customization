@@ -6,18 +6,9 @@ angular
     'extensionRegistry',
     function (extensionRegistry) {
 
-      $.getJSON("https://cru1zzz3.github.io/openshift-customization/json/data.json", function (data) {
-        var featureCount = Object.keys(data).length; // amount of features
-
-        // print all features from JSON file
-        function feature_status() {
+        function add_metricsViewerDiv() {
           var features = "";
-          features = features.concat('<div id="metricsViewer" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;"></div>') // there should be response from /metrics
-          /*
-          $.each(data, function (key, val) {
-            features = features.concat('<li class="ng-scope">' + key + ' : ' + val + '</li>');
-          });
-          */
+          features = features.concat('<div id="metricsViewer" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;"></div>') // there should be response from /metrics    
           return features;
         }
 
@@ -25,17 +16,19 @@ angular
           .add('nav-widget-dropdown', function () {
             return [{
               type: 'dom',
-              node: feature_status()
+              node: add_metricsViewerDiv()
             },{
               type: 'dom',
               node: getMetics()
             }];
           });
 
+        /*
         var featureStr = ' ' + featureCount + ' feature';
         if (featureCount !== 1) {
           featureStr += "s";
         }
+        */
 
         function getMetics() {
           var xhr = new XMLHttpRequest();
@@ -57,7 +50,7 @@ angular
           }
         }
 
-        function getMetics() {
+        function getMeticsGrafana() {
           var xhr = new XMLHttpRequest();
           var grafana = 'https://grafana-openshift-monitoring.apps.centos7-k8s-2/api/datasources/proxy/1/api/v1/query_range?query=node%3Anode_cpu_saturation_load1%3A%7Bnode%3D%22centos7-k8s-2%22%7D&start=1576156650&end=1576160280&step=30';
           xhr.withCredentials = true
@@ -70,11 +63,11 @@ angular
               console.log(xhr.responseText)
             }
             else
-              console.error("Error in getting grafana. Reason" + response.responseType + response.responseText);
+              console.error("Error in getting grafana. Reason" + xhr.responseType + xhr.responseText);
           }
         }
 
-        var refresh_button = $('<button id="refreshMetrics" type="button" onclick="getMetics()" title="Refresh metrics" class="fa action fa-refresh"> </button>');
+        //var refresh_button = $('<button id="refreshMetrics" type="button" onclick="getMetics()" title="Refresh metrics" class="fa action fa-refresh"> </button>');
         
         var status_widget = $('<li class="dropdown" uib-dropdown="" style="padding-top: 20px">' +         // dropdown element on page
           '<a id="widget-dropdown" uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle"' +
@@ -99,7 +92,7 @@ angular
               node: refresh_button // add refresh button 
             }];
           });
-        */Z
+        */
 
         // extension add widget to
         extensionRegistry
@@ -109,7 +102,6 @@ angular
               node: status_widget // maybe change to monitoring widget
             }];
           });
-      });
     }
   ]);
 
