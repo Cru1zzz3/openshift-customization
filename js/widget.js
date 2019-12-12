@@ -41,9 +41,8 @@ angular
           xhr.onload = function () {
             if (xhr.status == 200) {
               console.log("Authorization ok");
-              var metricsViewerElement = document.getElementById("metricsViewer");
-              metricsViewerElement.append(xhr.responseText)
-              console.log(xhr.responseText)
+              $("#metricsViewer").empty().append(xhr.responseText);
+              //console.log(xhr.responseText)
             }
             else
               console.error("Error in getting metrics. Reason" + xhr.responseType + xhr.responseText);
@@ -87,7 +86,7 @@ angular
         );
 
         function reloadMetrics(){
-          $('#metricsViewer').onreadystatechange(function(){
+          $('#metricsViewer').onload(function(){
             setInterval(getMetics,5000);
           });
         }
