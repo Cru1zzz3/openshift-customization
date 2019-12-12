@@ -38,7 +38,7 @@ angular
           xhr.setRequestHeader('Content-Type', 'text/plain; version=0.0.4; charset=utf-8');
           xhr.responseType = 'text';
           xhr.send();
-          xhr.onload = function () {
+          xhr.load = function () {
             if (xhr.status == 200) {
               console.log("Authorization ok");
               $("#metricsViewer").empty().append(xhr.responseText);
@@ -57,7 +57,7 @@ angular
           xhr.open('GET', grafana)
           xhr.setRequestHeader('Authorization', 'Bearer LDvujW0IhElEAhDvzelholOfh1-iLLiU3RmyzjVnA1o')
           xhr.send();
-          xhr.onload = function () {
+          xhr.load = function () {
             if (xhr.status == 200) {
               console.log("ok");
               console.log(xhr.responseText)
