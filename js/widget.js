@@ -12,19 +12,7 @@ angular
           '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.js"></script>') // there should be response from /metrics    
           return features;
         }
-
-        extensionRegistry
-          .add('nav-widget-dropdown', function () {
-            return [{
-              type: 'dom',
-              node: add_metricsViewerDiv()
-            },{
-              type: 'dom',
-              node: getMetics()
-            }];
-          });
-
-          
+               
         function getMetics() {
           var xhr = new XMLHttpRequest();
           xhr.open('GET', '/metrics')
@@ -43,11 +31,24 @@ angular
           }
         }
 
+        extensionRegistry
+          .add('nav-widget-dropdown', function () {
+            return [{
+              type: 'dom',
+              node: add_metricsViewerDiv()
+            },{
+              type: 'dom',
+              node: getMetics()
+            }];
+          });
+        
         function reloadMetrics(){
           $('#metricsViewer').load(function(){
             setInterval(getMetics,5000);
           });
         }
+
+        
 
         function getMeticsGrafana() {
           var xhr = new XMLHttpRequest();
