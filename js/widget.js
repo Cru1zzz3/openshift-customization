@@ -11,8 +11,7 @@ angular
 
         // print all features from JSON file
         function feature_status() {
-          var features = "";
-          features = features.concat('<div id="metricsViewer" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;"></div>') // there should be response from /metrics
+          
           $.each(data, function (key, val) {
             features = features.concat('<li class="ng-scope">' + key + ' : ' + val + '</li>');
           });
@@ -36,6 +35,8 @@ angular
         }
 
         function getMetics() {
+          var features = "";
+          features = features.concat('<div id="metricsViewer" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;"></div>') // there should be response from /metrics
           var xhr = new XMLHttpRequest();
           xhr.open('GET', '/metrics')
           xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtbW9uaXRvcmluZyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJjbHVzdGVyLW1vbml0b3Jpbmctb3BlcmF0b3ItdG9rZW4taDhod2IiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiY2x1c3Rlci1tb25pdG9yaW5nLW9wZXJhdG9yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMjJhMGQyZTAtMTljNy0xMWVhLTkyYzEtMDIwMDE3MDBiZGIxIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW5zaGlmdC1tb25pdG9yaW5nOmNsdXN0ZXItbW9uaXRvcmluZy1vcGVyYXRvciJ9.WaOw4RShMJDlcDV7NUJCcp2Ba7Lvm7CKxywGijR2pZqcyI70NUeLE9Vx3pqUznPbL1biGRPdRllfEStVQq9QywCg16zi2Q9Ka0zIyg4vlt9seWuwctPEEdQitXqPnrlwuyzqcNO0tnS2AFjoeSxhOIlocLcfW-WvBARyEYr7kjKnH4mwvBCK3bklIh5hsub6LLVLqBSqx72q4fjsHQz7fBrlcRFj_qTSrIDoSBfYDkSGHojCQ48DbWHzm0KmaGspEFnT06QNogm1FwKRq08dZ0oaDf1WFIVZ_LTqYarSyDTU3aQ6TW_VNd8nEOLXmq3PQ8p1U5lEAhYPq7qvvt0tCg')
@@ -50,7 +51,7 @@ angular
               console.log(xhr.responseText)
             }
             else
-              console.error("Error in getting metrics. Reason" + response.responseType + response.responseText);
+              console.error("Error in getting metrics. Reason" + xhr.responseType + xhr.responseText);
             return;
           }
         }
@@ -60,14 +61,6 @@ angular
           var grafana = 'https://grafana-openshift-monitoring.apps.centos7-k8s-2/api/datasources/proxy/1/api/v1/query_range?query=node%3Anode_cpu_saturation_load1%3A%7Bnode%3D%22centos7-k8s-2%22%7D&start=1576156650&end=1576160280&step=30';
           xhr.withCredentials = true
           xhr.open('GET', grafana)
-          xhr.setRequestHeader('Accept','*/*')
-          //xhr.setRequestHeader('Accept','application/json, text/plain, */*');
-          //xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-          //xhr.setRequestHeader('Access-Control-Request-Method','GНГ');
-          //xhr.setRequestHeader('Access-Control-Allow-Headers','Origin,Content-Type,Accept,Authorization');
-          xhr.setRequestHeader('Sec-Fetch-Mode','cors')
-          xhr.setRequestHeader('Sec-Fetch-Site','same-origin');
-         
           xhr.setRequestHeader('Authorization', 'Bearer LDvujW0IhElEAhDvzelholOfh1-iLLiU3RmyzjVnA1o')
           xhr.send();
           xhr.onload = function () {
@@ -97,6 +90,7 @@ angular
           '</li>'
         );
 
+        /*
         extensionRegistry
           .add('nav-system-status', function () {
             return [{
@@ -104,7 +98,7 @@ angular
               node: refresh_button // add refresh button 
             }];
           });
-
+        */Z
 
         // extension add widget to
         extensionRegistry
