@@ -8,9 +8,13 @@ angular
 
         function add_metricsViewerDiv() {
           var features = "";
-          features = features.concat('<div id="metricsViewer" style="height:350px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;resize: vertical;"></div>') // there should be response from /metrics    
-          script = $('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.js"></script>');
+          features = features.concat('<div id="metricsViewer" style="height:350px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;resize: vertical;"></div>' + 
+          '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.js"></script>') // there should be response from /metrics    
+          return features;
         }
+
+        
+
 
         extensionRegistry
           .add('nav-widget-dropdown', function () {
