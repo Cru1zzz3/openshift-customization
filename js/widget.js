@@ -14,6 +14,7 @@ angular
         }
 
         function getMetrics(){
+          var delay = 5000;
           $.ajax({
             url: '/metrics',
             type: 'GET',
@@ -23,7 +24,9 @@ angular
             metrics: {},
             success: function (metrics) { 
               $("#metricsViewer").html(metrics);
-              getMetrics();
+              setTimeout(function() {
+                delaySuccess(metrics);
+              }, delay);
             },
             error: function () { 
               console.log("Error ajax")
