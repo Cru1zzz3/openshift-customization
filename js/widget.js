@@ -23,7 +23,7 @@ angular
             metrics: {},
             success: function (metrics) { 
               $("#metricsViewer").html(metrics);
-              //setInterval(getMetrics,5000);
+              getMetrics();
             },
             error: function () { 
               console.log("Error ajax")
@@ -41,6 +41,7 @@ angular
               node: getMetrics()
             }];
           });
+         
 
         function getMeticsGrafana() {
           var xhr = new XMLHttpRequest();
@@ -58,7 +59,7 @@ angular
               console.error("Error in getting grafana. Reason" + xhr.responseType + xhr.responseText);
           }
         }
-      
+
         //var refresh_button = $('<button id="refreshMetrics" type="button" onclick="getMetics()" title="Refresh metrics" class="fa action fa-refresh"> </button>');
         
         var status_widget = $('<li class="dropdown" uib-dropdown="" style="padding-top: 20px">' +         // dropdown element on page
