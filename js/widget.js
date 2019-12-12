@@ -12,7 +12,7 @@ angular
           '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.js"></script>') // there should be response from /metrics    
           return features;
         }
-               
+
         function getMetics() {
           var xhr = new XMLHttpRequest();
           xhr.open('GET', '/metrics')
@@ -43,7 +43,7 @@ angular
           });
         
         function reloadMetrics(){
-          $('#metricsViewer').load(function(){
+          $('#metricsViewer').on('load',function(){
             setInterval(getMetics,5000);
           });
         }
