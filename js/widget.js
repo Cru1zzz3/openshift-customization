@@ -8,7 +8,7 @@ angular
 
         function add_metricsViewerDiv() {
           var features = "";
-          features = features.concat('<div id="metricsViewer" style="height:120px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;"></div>') // there should be response from /metrics    
+          features = features.concat('<div id="metricsViewer" style="height:350px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;resize: vertical;"></div>') // there should be response from /metrics    
           return features;
         }
 
