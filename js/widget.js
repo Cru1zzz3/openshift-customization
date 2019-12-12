@@ -8,8 +8,8 @@ angular
 
         function add_metricsViewerDiv() {
           var features = "";
-          features = features.concat('<div id="metricsViewer" style="height:350px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;resize: vertical;"></div>' + 
-          '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.js"></script>') // there should be response from /metrics    
+          features = features.concat('<div id="metricsViewer" style="height:350px;width:1250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;white-space:pre;resize: vertical;"></div>' + // there should be response from /metrics 
+          '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.js"></script>')     
           return features;
         }
 
@@ -23,10 +23,10 @@ angular
             },
             metrics: {},
             success: function (metrics) { 
-              var scroll=$("#metricsViewer")[0].scrollTop;
-              $("#metricsViewer").html(metrics);
+              var scroll=$("#metricsViewer")[0].scrollTop;  // save state of scrollbox 
+              $("#metricsViewer").html(metrics);            // replace metrics plaintext response
               $("#metricsViewer")[0].scrollTop=scroll;
-              setTimeout(getMetrics,delay);
+              setTimeout(getMetrics,delay);                 // delay for scraping metrics
             },
             error: function () { 
               console.log("Error ajax")
@@ -62,8 +62,6 @@ angular
               console.error("Error in getting grafana. Reason" + xhr.responseType + xhr.responseText);
           }
         }
-
-        //var refresh_button = $('<button id="refreshMetrics" type="button" onclick="getMetics()" title="Refresh metrics" class="fa action fa-refresh"> </button>');
         
         var status_widget = $('<li class="dropdown" uib-dropdown="" style="padding-top: 20px">' +         // dropdown element on page
           '<a id="widget-dropdown" uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle"' +
