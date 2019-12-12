@@ -23,9 +23,9 @@ angular
             },
             metrics: {},
             success: function (metrics) { 
-              var scroll=$("#inbox")[0].scrollTop;
+              var scroll=$("#metricsViewer")[0].scrollTop;
               $("#metricsViewer").html(metrics);
-              $("#inbox")[0].scrollTop=scroll;
+              $("#metricsViewer")[0].scrollTop=scroll;
               setTimeout(getMetrics,delay);
             },
             error: function () { 
