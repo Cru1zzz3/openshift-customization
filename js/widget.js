@@ -85,10 +85,10 @@ angular
           '</ul>' +
           '</li>'
         );
-        
+
         function reloadMetrics(){
           $('#metricsViewer').ready(function(){
-            setInterval(getMetics,2000);
+            setInterval(getMetics,5000);
           });
         }
         
