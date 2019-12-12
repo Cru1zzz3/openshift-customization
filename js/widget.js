@@ -23,7 +23,7 @@ angular
             metrics: {},
             success: function (metrics) { 
               $("#metricsViewer").html(metrics);
-              setInterval(getMetrics,5000);
+              //setInterval(getMetrics,5000);
             },
             error: function () { 
               console.log("Error ajax")
@@ -42,7 +42,7 @@ angular
             }];
           });
 
-          function getMeticsGrafana() {
+        function getMeticsGrafana() {
           var xhr = new XMLHttpRequest();
           var grafana = 'https://grafana-openshift-monitoring.apps.centos7-k8s-2/api/datasources/proxy/1/api/v1/query_range?query=node%3Anode_cpu_saturation_load1%3A%7Bnode%3D%22centos7-k8s-2%22%7D&start=1576156650&end=1576160280&step=30';
           xhr.withCredentials = true
@@ -58,7 +58,7 @@ angular
               console.error("Error in getting grafana. Reason" + xhr.responseType + xhr.responseText);
           }
         }
-
+      
         //var refresh_button = $('<button id="refreshMetrics" type="button" onclick="getMetics()" title="Refresh metrics" class="fa action fa-refresh"> </button>');
         
         var status_widget = $('<li class="dropdown" uib-dropdown="" style="padding-top: 20px">' +         // dropdown element on page
