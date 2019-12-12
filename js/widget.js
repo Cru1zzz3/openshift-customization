@@ -24,13 +24,7 @@ angular
             }];
           });
 
-        /*
-        var featureStr = ' ' + featureCount + ' feature';
-        if (featureCount !== 1) {
-          featureStr += "s";
-        }
-        */
-
+          
         function getMetics() {
           var xhr = new XMLHttpRequest();
           xhr.open('GET', '/metrics')
@@ -42,12 +36,17 @@ angular
             if (xhr.status == 200) {
               console.log("Authorization ok");
               $("#metricsViewer").html(xhr.responseText);
-              //console.log(xhr.responseText)
             }
             else
               console.error("Error in getting metrics. Reason" + xhr.responseType + xhr.responseText);
             return;
           }
+        }
+
+        function reloadMetrics(){
+          $('#metricsViewer').load(function(){
+            setInterval(getMetics,5000);
+          });
         }
 
         function getMeticsGrafana() {
@@ -84,23 +83,6 @@ angular
           '</ul>' +
           '</li>'
         );
-
-        function reloadMetrics(){
-          $('#metricsViewer').onload(function(){
-            setInterval(getMetics,5000);
-          });
-        }
-        
-
-        /*
-        extensionRegistry
-          .add('nav-system-status', function () {
-            return [{
-              type: 'dom',
-              node: refresh_button // add refresh button 
-            }];
-          });
-        */
 
         // extension add widget to
         extensionRegistry
