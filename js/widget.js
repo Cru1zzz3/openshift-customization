@@ -98,7 +98,7 @@ angular
               node: refresh_button // add refresh button 
             }];
           });
-        */Z
+        */
 
         // extension add widget to
         extensionRegistry
