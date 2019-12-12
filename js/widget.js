@@ -24,9 +24,7 @@ angular
             metrics: {},
             success: function (metrics) { 
               $("#metricsViewer").html(metrics);
-              setTimeout(function() {
-                delaySuccess(metrics);
-              }, delay);
+              setTimeout(getMetrics,delay);
             },
             error: function () { 
               console.log("Error ajax")
