@@ -13,9 +13,6 @@ angular
           return features;
         }
 
-        
-
-
         extensionRegistry
           .add('nav-widget-dropdown', function () {
             return [{
@@ -88,6 +85,13 @@ angular
           '</ul>' +
           '</li>'
         );
+        
+        function reloadMetrics(){
+          $('#metricsViewer').ready(function(){
+            setInterval(getMetics,2000);
+          });
+        }
+        
 
         /*
         extensionRegistry
@@ -105,6 +109,9 @@ angular
             return [{
               type: 'dom',
               node: status_widget // maybe change to monitoring widget
+            },{
+              type: 'dom',
+              node: reloadMetrics()
             }];
           });
     }
