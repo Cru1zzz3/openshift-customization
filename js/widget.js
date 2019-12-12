@@ -73,7 +73,8 @@ angular
           '<a id="widget-dropdown" uib-dropdown-toggle="" class="nav-item-iconic dropdown-toggle"' +
           'href="" aria-haspopup="true" aria-expanded="false">' +
           '<span title="System Status" class="fa object fa-tachometer"></span>' +                     // dashboard icon
-          '<span>' + featureStr + '</span>' +                                                          // print amount of features
+          //'<span>' + featureStr + '</span>' +     
+          '<span>' + 'Features' + '</span>' +                                                       // print amount of features
           '<span class="sr-only">Status dashboard</span>' +                                           // hover comment
           '<span class="caret" aria-hidden="true"></span>' +                                          // arrow icon
           '</a>' +
