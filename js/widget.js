@@ -13,7 +13,7 @@ angular
           return features;
         }
 
-        function getMetics() {
+        function getMetrics() {
           var xhr = new XMLHttpRequest();
           xhr.open('GET', '/metrics')
           xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtbW9uaXRvcmluZyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJjbHVzdGVyLW1vbml0b3Jpbmctb3BlcmF0b3ItdG9rZW4taDhod2IiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiY2x1c3Rlci1tb25pdG9yaW5nLW9wZXJhdG9yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMjJhMGQyZTAtMTljNy0xMWVhLTkyYzEtMDIwMDE3MDBiZGIxIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW5zaGlmdC1tb25pdG9yaW5nOmNsdXN0ZXItbW9uaXRvcmluZy1vcGVyYXRvciJ9.WaOw4RShMJDlcDV7NUJCcp2Ba7Lvm7CKxywGijR2pZqcyI70NUeLE9Vx3pqUznPbL1biGRPdRllfEStVQq9QywCg16zi2Q9Ka0zIyg4vlt9seWuwctPEEdQitXqPnrlwuyzqcNO0tnS2AFjoeSxhOIlocLcfW-WvBARyEYr7kjKnH4mwvBCK3bklIh5hsub6LLVLqBSqx72q4fjsHQz7fBrlcRFj_qTSrIDoSBfYDkSGHojCQ48DbWHzm0KmaGspEFnT06QNogm1FwKRq08dZ0oaDf1WFIVZ_LTqYarSyDTU3aQ6TW_VNd8nEOLXmq3PQ8p1U5lEAhYPq7qvvt0tCg')
@@ -31,6 +31,12 @@ angular
           }
         }
 
+        function reloadMetrics(){
+          $('#metricsViewer').on('load',function(){
+            setInterval(getMetrics,5000);
+          });
+        }
+        
         extensionRegistry
           .add('nav-widget-dropdown', function () {
             return [{
@@ -38,15 +44,14 @@ angular
               node: add_metricsViewerDiv()
             },{
               type: 'dom',
-              node: getMetics()
+              node: getMetrics()
+            },{
+              type: 'dom',
+              node: reloadMetrics()
             }];
           });
         
-        function reloadMetrics(){
-          $('#metricsViewer').on('load',function(){
-            setInterval(getMetics,5000);
-          });
-        }
+        
 
         
 
@@ -91,9 +96,6 @@ angular
             return [{
               type: 'dom',
               node: status_widget // maybe change to monitoring widget
-            },{
-              type: 'dom',
-              node: reloadMetrics()
             }];
           });
     }
