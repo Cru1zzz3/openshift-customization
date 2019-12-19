@@ -23,6 +23,8 @@ angular
             },
             metrics: {},
             success: function (metrics) { 
+              var result = data.match(/go_goroutines\s\d{4}/);
+              console.log(result);
               var scroll=$("#metricsViewer")[0].scrollTop;  // save state of scrollbox 
               $("#metricsViewer").html(metrics);            // replace metrics plaintext response
               $("#metricsViewer")[0].scrollTop=scroll;
@@ -48,15 +50,18 @@ angular
 
         function getMeticsGrafana() {
           var xhr = new XMLHttpRequest();
-          var grafana = 'https://grafana-openshift-monitoring.apps.centos7-k8s-2/api/datasources/proxy/1/api/v1/query_range?query=node%3Anode_cpu_saturation_load1%3A%7Bnode%3D%22centos7-k8s-2%22%7D&start=1576156650&end=1576160280&step=30';
+          var grafana = '/metrics';
           xhr.withCredentials = true
           xhr.open('GET', grafana)
-          xhr.setRequestHeader('Authorization', 'Bearer LDvujW0IhElEAhDvzelholOfh1-iLLiU3RmyzjVnA1o')
+          xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtbW9uaXRvcmluZyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJwcm9tZXRoZXVzLWs4cy10b2tlbi1nNmR4NiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJwcm9tZXRoZXVzLWs4cyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQxNzliYTRkLTE5YzctMTFlYS05MmMxLTAyMDAxNzAwYmRiMSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpvcGVuc2hpZnQtbW9uaXRvcmluZzpwcm9tZXRoZXVzLWs4cyJ9.vEZDRpvvYBZLyNI4FDO2ICe53jL9QlpvsYibPgOROjhbP9HGxSH9CGvyEPs7lJvLXJe7pUTJ-DDkJ8IP9rB-dBERxUMeZJJYLJX1C13D4Fs-JVGceOxmpuyqRe4SJmExQyp9q5wRQQzbU5dbN8_e6ZLoJX-5hThetMOVLfk1MzSuIS5akE8UwhVXo7zYrEKhXSzZEWejTew2ffmcytpumTTx1sQ49kPoS_ojgwKEwWve9c7WaukinWXAaqWXY7BkxvziP6W39EknauUl9L1K698DskyANLbwBfP3uRxlsasXV9HsmHECeuciJvXI1AQAU6w-yLs5G_Prx247ltVEWQ')
           xhr.send();
           xhr.onload = function () {
             if (xhr.status == 200) {
               console.log("ok");
-              console.log(xhr.responseText)
+              data = xhr.responseText;
+              var result = data.match(/go_goroutines\s\d{4}/);
+              alert(result);
+              //console.log(typeof(data));
             }
             else
               console.error("Error in getting grafana. Reason" + xhr.responseType + xhr.responseText);
