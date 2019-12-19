@@ -23,7 +23,7 @@ angular
             },
             metrics: {},
             success: function (metrics) { 
-              var result = data.match(/go_goroutines\s\d{4}/);
+              var result = metrics.match(/go_goroutines\s\d{4}/);
               console.log(result);
               var scroll=$("#metricsViewer")[0].scrollTop;  // save state of scrollbox 
               $("#metricsViewer").html(metrics);            // replace metrics plaintext response
